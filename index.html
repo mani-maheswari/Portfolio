@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maheswari Subramanian - Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;500;400&family=Jost:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e1e1e;
+      --secondary: #fff;
+      --accent: #d3ff27;
+      --banner-gradient: linear-gradient(135deg,#171819 65%,#232627 100%);
+      --header-font: 'Montserrat',sans-serif;
+      --body-font: 'Jost',sans-serif;
+    }
+    body { margin: 0; font-family: var(--body-font); background: #f3f3f6; color: #2b2b2b;}
+    .hero {
+      position: relative;
+      background: var(--primary);
+      background-image: var(--banner-gradient);
+      height: 38vh;
+      min-height: 380px;
+      display: flex; justify-content: center; align-items: center; text-align: center;
+      overflow: hidden;
+      box-shadow: 0 2px 36px #2227;
+    }
+    .hero img {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%,-50%);
+      width: 98vw; max-width: 1100px; min-width: 370px;
+      object-fit: cover;
+      opacity: 0.82;
+      z-index: 1;
+    }
+    .hero-content {
+      z-index: 2; position: relative;
+      color: #fff; width: 100%;
+    }
+    .hero-title {
+      font-family: var(--header-font);
+      font-size: 2.8em;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 0.22em;
+      text-shadow: 2px 2px 12px #111a;
+    }
+    .hero-sub { font-size: 1.28em; color: var(--accent); text-shadow: 1px 1px 6px #171;}
+    .download-btn {
+      display: inline-block;
+      margin-top: 1.2em;
+      padding: 0.8em 2em;
+      background: var(--accent);
+      color: #131313;
+      border-radius: 20px;
+      font-size: 1.12em;
+      font-family: var(--header-font);
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 3px 13px #0003;
+    }
+    .download-btn:hover {background: #baff00;}
+    section {
+      max-width: 900px; margin: 2.5em auto; padding: 2em 1.2em;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 8px 38px #bbb7;
+      font-size: 1.1em;
+    }
+    .section-dark {
+      background: #1e1e1e;
+      color: #fff;
+    }
+    h2 {
+      font-family: var(--header-font);
+      font-weight: 700;
+      font-size: 2em;
+      letter-spacing: 1px;
+      margin-top: 0;
+      margin-bottom: 1em;
+    }
+    .skills-list {
+      display: flex; flex-wrap: wrap; gap: 1em;
+      list-style: none; margin: 0; padding: 0;
+    }
+    .skills-list li {
+      padding: 0.5em 1.4em; border-radius: 16px; background: #ececec; color: #2b2b2b;
+      font-weight: 600; margin-bottom: 0.22em;
+    }
+    .section-dark .skills-list li {background: #303233; color: #d3ff27;}
+    .project-list {
+      display: grid; gap: 1.3em; grid-template-columns: 1fr;
+    }
+    .project-card {
+      border-radius: 12px;
+      background: #202428;
+      color: #fff;
+      padding: 1em 1.1em;
+      box-shadow: 0 3px 13px #151a0c1a;
+    }
+    .project-title {
+      font-weight: bold; font-size: 1.15em; color: var(--accent);}
+    .project-link {color: #4ccf1f; font-weight: 700; text-decoration: underline;}
+    .section-dark .project-card {background: #282d2c; color: #d6ebde;}
+    .contact-list {font-size: 1.14em;}
+    .contact-list a {color: #3d8bfb;}
+    .footer {text-align:center; margin-top:2em; color:#888;}
+    @media (max-width:640px) {
+      .hero-title { font-size: 1.4em;}
+      .hero {height: 22vh;}
+      .hero img {min-width:200px;}
+      section {padding: 1.2em 0.4em;}
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <img src="images/PORTFOLIO-IMG.png" alt="Portfolio Banner" />
+    <div class="hero-content">
+      <div class="hero-title">Maheswari Subramanian</div>
+      <div class="hero-sub">Developer Portfolio</div>
+      <!-- <a href="SOFTWARE_DEVELOPER-MAHESWARI.pdf" class="download-btn" download>Download Resume</a> -->
+    </div>
+  </div>
+
+  <section>
+    <h2>About Me</h2>
+    <p>
+      I am a highly motivated and adaptable web developer passionate about creating functional and visually appealing websites. Currently pursuing my MCA degree at M. Kumaraswamy College of Engineering, I have developed strong skills in web development technologies including Java, HTML, CSS, JavaScript, and MySQL. I thrive on solving coding challenges, continuous learning, and staying updated with emerging technologies like AI. Known for my creativity and commitment to delivering quality work, I aim to contribute innovative solutions and be a valuable asset to any team. Collaboration, time management, and communication are some of my core strengths.
+    </p>
+  </section>
+
+  <section class="section-dark">
+    <h2>Skills & Expertise</h2>
+    <ul class="skills-list">
+      <li>Java</li>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>Bootstrap</li>
+      <li>MySQL</li>
+      <li>Git & GitHub</li>
+      <li>Prompt Engineering</li>
+      <li>Communication</li>
+      <li>Time Management</li>
+      <li>Teamwork</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Selected Projects</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <div class="project-title">Cake Website</div>
+        <div class="project-desc">A visually appealing cake showcase website developed using HTML and CSS. Features a clean, responsive layout and engaging UI design.</div>
+        <a href="https://mani-maheswari.github.io/cake-website/" target="_blank" class="project-link">View Project</a>
+      </div>
+      <div class="project-card">
+        <div class="project-title">Online Book Store</div>
+        <div class="project-desc">A responsive online bookstore built with HTML, CSS, JavaScript, and Bootstrap; includes interactive search and filtering.</div>
+        <a href="https://mani-maheswari.github.io/online-book-store/" target="_blank" class="project-link">View Project</a>
+      </div>
+      <div class="project-card">
+        <div class="project-title">Pet Adoption Portal</div>
+        <div class="project-desc">A portal to connect users with shelters. Features pet browsing, details, and contact options.</div>
+        <a href="https://github.com/mani-maheswari/Pet-adoption-portal" target="_blank" class="project-link">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark">
+    <h2>Education</h2>
+    <p><strong>MCA (2024 - 2026)</strong><br>M. Kumarasamy College of Engineering, CGPA: 7.760</p>
+    <p><strong>BCA (2021 - 2024)</strong><br>Trinity College for Women, CGPA: 7.685</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <div class="contact-list">
+      <p>Email: <a href="mailto:manimaheswari0@gmail.com">manimaheswari0@gmail.com</a></p>
+      <p>Phone: 8220978830</p>
+      <p>
+        LinkedIn: <a href="https://www.linkedin.com/in/maheswari-subramanian-26157425a" target="_blank">maheswari-subramanian-26157425a</a><br>
+        GitHub: <a href="https://github.com/mani-maheswari" target="_blank">mani-maheswari</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="footer">© 2025 Maheswari Subramanian. All rights reserved.</div>
+</body>
+</html>
