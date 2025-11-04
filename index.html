@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Maheswari Subramanian - Developer Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;500;400&family=Jost:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;500;400&family=Jost:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --primary: #1e1e1e;
@@ -87,8 +87,17 @@
     .skills-list li {
       padding: 0.5em 1.4em; border-radius: 16px; background: #ececec; color: #2b2b2b;
       font-weight: 600; margin-bottom: 0.22em;
+      cursor: pointer;
+      transition: background-color 0.3s;
     }
-    .section-dark .skills-list li {background: #303233; color: #d3ff27;}
+    .skills-list li:hover {
+      background-color: #d3ff27;
+      color: #131313;
+    }
+    .section-dark .skills-list li {
+      background: #303233;
+      color: #d3ff27;
+    }
     .project-list {
       display: grid; gap: 1.3em; grid-template-columns: 1fr;
     }
@@ -112,11 +121,55 @@
       .hero img {min-width:200px;}
       section {padding: 1.2em 0.4em;}
     }
+    /* Modal Styles for Certificates */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0; width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 25px #d3ff27;
+      background-color: #222a22;
+      padding: 0.5em;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content img,
+    .modal-content iframe {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 8px;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 2rem;
+      color: var(--accent);
+      font-weight: 900;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.3s;
+    }
+    .modal-close:hover {
+      color: #baff00;
+    }
   </style>
 </head>
 <body>
   <div class="hero">
-    <img src="images/PORTFOLIO-IMG.png" alt="Portfolio Banner" />
+    <!-- <img src="./images/PORTFOLIO - IMG.png" alt="Portfolio Banner" /> -->
     <div class="hero-content">
       <div class="hero-title">Maheswari Subramanian</div>
       <div class="hero-sub">Developer Portfolio</div>
@@ -175,18 +228,74 @@
     <p><strong>BCA (2021 - 2024)</strong><br>Trinity College for Women, CGPA: 7.685</p>
   </section>
 
+  <!-- Certificates Section -->
+  <section class="section-dark" id="certificates">
+    <h2>Certificates</h2>
+    <ul class="skills-list" style="flex-direction: column; gap: 0.6em;">
+      <li data-type="image" data-src="Certificates/AWS Networking Basics_page-0001.jpg">AWS Networking Basics</li>
+      <li data-type="image" data-src="Certificates/Beginners guide to Ethical hacking_page-0001 (1).jpg">Beginners guide to Ethical Hacking</li>
+      <li data-type="image" data-src="Certificates/Coursera MUVKRCKOBCK6_page-0001.jpg">Coursera - Data Analysis Certificate</li>
+      <li data-type="image" data-src="Certificates/Data Analysis with python_page-0001 (1).jpg">Data Analysis with Python</li>
+      <li data-type="image" data-src="Certificates/Evoriea_page-0001.jpg">Evoriea Certificate</li>
+      <li data-type="image" data-src="Certificates/infosys prompt engineering certificate_page-0001.jpg">Infosys Prompt Engineering Certificate</li>
+      <li data-type="image" data-src="Certificates/tcs-ion_communication_skills_page-0001 (1).jpg">TCS-iON Communication Skills Certificate</li>
+    </ul>
+  </section>
+
   <section>
     <h2>Contact</h2>
     <div class="contact-list">
       <p>Email: <a href="mailto:manimaheswari0@gmail.com">manimaheswari0@gmail.com</a></p>
       <p>Phone: 8220978830</p>
       <p>
-        LinkedIn: <a href="https://www.linkedin.com/in/maheswari-subramanian-26157425a" target="_blank">maheswari-subramanian-26157425a</a><br>
+        LinkedIn: <a href="https://www.linkedin.com/in/maheswari-subramanian-26157425a" target="_blank">maheswari-subramanian-26157425a</a><br />
         GitHub: <a href="https://github.com/mani-maheswari" target="_blank">mani-maheswari</a>
       </p>
     </div>
   </section>
 
   <div class="footer">© 2025 Maheswari Subramanian. All rights reserved.</div>
+
+  <!-- Modal for certificate zoom -->
+  <div class="modal" id="certModal">
+    <div class="modal-content">
+      <span class="modal-close" id="modalClose">&times;</span>
+      <img id="modalImage" alt="Certificate Zoom" style="display:none" />
+    </div>
+  </div>
+
+  <script>
+    // Elements
+    const modal = document.getElementById('certModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalClose = document.getElementById('modalClose');
+
+    // Open modal with certificate
+    document.querySelectorAll('#certificates li').forEach(item => {
+      item.addEventListener('click', () => {
+        const type = item.getAttribute('data-type');
+        const src = item.getAttribute('data-src');
+        if(type === 'image') {
+          modalImage.src = src;
+          modalImage.style.display = 'block';
+        }
+        modal.style.display = 'flex';
+      });
+    });
+
+    // Close modal
+    modalClose.addEventListener('click', () => {
+      modal.style.display = 'none';
+      modalImage.src = '';
+    });
+
+    // Close if clicked outside modal content
+    window.addEventListener('click', (e) => {
+      if(e.target === modal) {
+        modal.style.display = 'none';
+        modalImage.src = '';
+      }
+    });
+  </script>
 </body>
 </html>
